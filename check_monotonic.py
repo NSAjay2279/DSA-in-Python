@@ -1,29 +1,17 @@
-def check_monotonic(array):
-   
-    MD = True
-    MI = True
-
-    for i in range(len(array)):
-        for j in range(i+1, len(array)):
-            if array[i] <= array[j]:
-                break;
-            else:
-                MI = False
+def chk_mon(arr): 
+    if len(arr) == 0:
+        return True
+    f = arr[0]
+    l = arr[len(arr)-1]
     
-    for i in range(len(array)):
-        for j in range(i+1, len(array)):
-            if array[i] >= array[j]:
-                break;
-            else:
-                MD = False
-
-    if MD == True:
-        return True
-    elif MI == True:
-        return True
+    if f == l:
+        for i in range(len(arr) - 1):
+            if arr[i + 1] != arr[i]: return False
+    elif f < l:
+        for i in range(len(arr) - 1):
+            if arr[i + 1] < arr[i]: return False
     else:
-        return False
-
-print(checkMonotonic([1,2,3,2]))
-print(checkMonotonic([3,2,2,1]))
-print(checkMonotonic([1,2,3,4]))
+        for i in range(len(arr) - 1):
+            if arr[i + 1] > arr[i]: return False
+    
+    return True

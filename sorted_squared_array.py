@@ -1,18 +1,14 @@
-def sorted_squared_array(array):
-    for i in range(len(array)):
-        array[i] = array[i] * array[i]
+def sqr_sort(arr):
+    n = len(arr)
+    res = [0] * n
+    l, r = 0, n - 1
     
-    newarray = [0] * len(array)
-        
-    lptr = 0
-    rptr = len(array) - 1
-    for i in range(len(array)):
-        if array[lptr] > array[rptr]:
-            newarray[rptr] = array[lptr]
-            lptr += 1
+    for i in range(n - 1, -1, -1):
+        ls, rs = arr[l] ** 2, arr[r] ** 2
+        if ls > rs:
+            res[i] = ls
+            l += 1
         else:
-            newarray[rptr] = array[rptr]
-            rptr -= 1
-    
-    return newarray
-            
+            res[i] = rs
+            r -= 1
+    return res
