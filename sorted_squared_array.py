@@ -1,14 +1,14 @@
 def sqr_sort(arr):
     n = len(arr)
-    res = [0] * n
-    l, r = 0, n - 1
+    narr = [0] * n
+    lp, rp = 0, n - 1
     
     for i in range(n - 1, -1, -1):
-        ls, rs = arr[l] ** 2, arr[r] ** 2
+        ls, rs = arr[lp] ** 2, arr[rp] ** 2
         if ls > rs:
-            res[i] = ls
-            l += 1
+            narr[i] = ls
+            lp += 1
         else:
-            res[i] = rs
-            r -= 1
-    return res
+            narr[i] = rs
+            rp -= 1
+    return narr
