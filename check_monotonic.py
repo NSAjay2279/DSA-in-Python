@@ -1,17 +1,25 @@
-def chk_mon(arr): 
-    if len(arr) == 0:
+def check_monotonic(array):
+    if len(array) == 0:
         return True
-    f = arr[0]
-    l = arr[len(arr)-1]
     
-    if f == l:
-        for i in range(len(arr) - 1):
-            if arr[i + 1] != arr[i]: return False
-    elif f < l:
-        for i in range(len(arr) - 1):
-            if arr[i + 1] < arr[i]: return False
+    first = array[0]
+    last = array[-1]
+
+    if first == last:
+        for i in range(len(array) - 1):
+            if array[i + 1] != array[i]:
+                return False
+    elif first < last:
+        # non-decreasing
+        for i in range(len(array) - 1):
+            if array[i + 1] < array[i]:
+                return False
     else:
-        for i in range(len(arr) - 1):
-            if arr[i + 1] > arr[i]: return False
+        # non-increasing
+        for i in range(len(array) - 1):
+            if array[i + 1] > array[i]:
+                return False
     
     return True
+
+
